@@ -12,7 +12,7 @@ class PlayerScreenMobile extends GetView<PlayerController> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          onPressed: () => Get.back(),
+          onPressed: () => Get.close(1),
           icon: Icon(
             Icons.keyboard_arrow_down_sharp,
             size: Dimensions.iconSizeLarge,

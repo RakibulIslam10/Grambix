@@ -39,30 +39,21 @@ class AppHaderWidget extends StatelessWidget {
                 onTap: () => Get.find<NavigationController>().goToProfile(),
                 child: Padding(
                   padding: Dimensions.defaultHorizontalSize.edgeHorizontal,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey.shade300,
-                    radius: 17,
-                    backgroundImage:
-                        Get.find<ProfileController>()
-                                .profileInfo
-                                .value
-                                ?.user
-                                .profilePicture !=
-                            null
-                        ? NetworkImage(
-                            Get.find<ProfileController>().profileInfo.value!.user.profilePicture,
-                          )
-                        : null, // Fallback if there is no profile picture
-                    child:
-                        Get.find<ProfileController>()
-                                .profileInfo
-                                .value
-                                ?.user
-                                .profilePicture ==
-                            null
-                        ? Icon(Icons.person, color: Colors.white, size: 20)
-                        : null,
-                  ),
+                  child: Obx(() {
+                    final profile =
+                        Get.find<ProfileController>().profileInfo.value?.user.profilePicture;
+
+                    final hasImage = profile != null && profile.isNotEmpty;
+
+                    return CircleAvatar(
+                      backgroundColor: Colors.grey.shade300,
+                      radius: 20,
+                      backgroundImage: hasImage ? NetworkImage(profile) : null,
+                      child: hasImage
+                          ? null
+                          : const Icon(Icons.person, color: Colors.white, size: 20),
+                    );
+                  }),
                 ),
               ),
             ],

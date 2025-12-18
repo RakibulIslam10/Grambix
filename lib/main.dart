@@ -42,12 +42,21 @@ class MyApp extends StatelessWidget {
         initialBinding: BindingsBuilder(() {
           Get.lazyPut(() => SplashController());
         }),
+        // ✅ FIXED BUILDER
         builder: (context, widget) {
-          return Directionality(
-            textDirection: Get.locale?.languageCode == 'ar'
-                ? TextDirection.rtl
-                : TextDirection.ltr,
-            child: widget!,
+          return Overlay(
+            initialEntries: [
+              OverlayEntry(
+                builder: (ctx) {
+                  return Directionality(
+                    textDirection: Get.locale?.languageCode == 'ar'
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
+                    child: widget!,
+                  );
+                },
+              ),
+            ],
           );
         },
       ),

@@ -34,7 +34,7 @@ class HomeScreenMobile extends GetView<HomeController> {
         physics: const ClampingScrollPhysics(),
 
         slivers: [
-          SliverToBoxAdapter(child: SearchBarWidget()),
+          // SliverToBoxAdapter(child: SearchBarWidget()),
           SliverToBoxAdapter(child: Space.height.v15),
           SliverToBoxAdapter(child: HomeSliderWidget()),
           SliverToBoxAdapter(child: Space.height.v15),

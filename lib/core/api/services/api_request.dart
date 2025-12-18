@@ -33,7 +33,7 @@ class ApiRequest {
 
       final response = await http
           .post(uri, headers: await _bearerHeaderInfo(), body: jsonEncode(body))
-          .timeout(const Duration(seconds: 120));
+          .timeout(const Duration(seconds: 200));
 
       log('|✅|---------[ ✅ POST REQUEST COMPLETED ]---------|✅|');
 
