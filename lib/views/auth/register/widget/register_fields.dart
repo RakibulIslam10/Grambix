@@ -73,7 +73,8 @@ class RegisterFields extends GetView<RegisterController> {
           style: CustomStyle.labelSmall.copyWith(fontWeight: FontWeight.w500),
           color: CustomColor.whiteColor,
         ),
-        CustomCountryPicker(selectedCountry: controller.selectedCountry),
+        CustomCountryPicker(
+            selectedCountry: controller.selectedCountry),
 
         Space.height.betweenInputBox,
         Space.height.betweenInputBox,

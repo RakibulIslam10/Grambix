@@ -18,18 +18,57 @@ class CustomCountryPicker extends StatelessWidget {
       onTap: () {
         showCountryPicker(
           context: context,
-          showSearch: false,
+          showSearch: true,
           useSafeArea: true,
+          searchAutofocus: true,
+
           countryListTheme: CountryListThemeData(
             borderRadius: BorderRadius.circular(Dimensions.radius * 0.8),
             backgroundColor: CustomColor.background,
-            bottomSheetHeight: MediaQuery.of(context).size.height * 0.5,
-            textStyle: TextStyle(color: CustomColor.whiteColor),
+            bottomSheetHeight: MediaQuery.of(context).size.height * 0.45,
+
+            /// Country list text
+            textStyle: TextStyle(
+              color: CustomColor.whiteColor,
+              fontSize: 14.sp,
+            ),
+
+            /// Search field text (typing text color)
+            searchTextStyle: TextStyle(
+              color: CustomColor.whiteColor,
+              fontSize: 14.sp,
+            ),
+
+            /// 🔥 Search TextField border, hint, label
+            inputDecoration: InputDecoration(
+              isDense: true, // 🔥 height কমায়
+
+              // contentPadding: EdgeInsets.symmetric(
+              //   vertical: 8.h,   // 🔥 এইটা adjust করো
+              //   horizontal: 12.w,
+              // ),
+              hintText: 'Search country',
+              hintStyle: TextStyle(
+                color: CustomColor.whiteColor.withOpacity(0.5),
+                fontSize: 14.sp,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Dimensions.radius),
+                borderSide: BorderSide(
+                  color: CustomColor.primary,
+                  width: 1.5,
+                ),
+              ),
+
+            ),
           ),
+
           onSelect: (Country country) {
             selectedCountry.value = country.name;
-            log(selectedCountry.value);          },
+            log(selectedCountry.value);
+          },
         );
+
       },
       child: Container(
         alignment: Alignment.centerLeft,

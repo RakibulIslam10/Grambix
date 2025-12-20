@@ -54,28 +54,28 @@ class GrambixScreenMobile extends GetView<GrambixController> {
                       ],
 
                       if (controller.continueListeningList.isNotEmpty) ...[
-                        // TextWidget(
-                        //   padding: EdgeInsets.only(
-                        //     bottom: Dimensions.verticalSize * 0.4,
-                        //     top: Dimensions.verticalSize * 0.5,
-                        //   ),
-                        //   Strings.continueListening,
-                        //   color: CustomColor.whiteColor,
-                        //   fontWeight: FontWeight.w600,
-                        //   fontSize: Dimensions.titleMedium * 1.1,
-                        // ),
-                        // CustomItemsCardWidget(
-                        //   items: controller.continueListeningList,
-                        //   getImagePath: (item) => 'item.bookCover',
-                        //   getTitle: (item) => 'item.bookName',
-                        //   getSubtitle: (item) => 'item.synopsis',
-                        //   argument: (item) => item.id,
-                        //   // getTrailingIcon: (item) => item.isEbook == true
-                        //   //     ? SvgPicture.asset(Assets.icons.music)
-                        //   //     : item.isEbook == false
-                        //   //     ? SvgPicture.asset(Assets.icons.headphone)
-                        //   //     : SvgPicture.asset(Assets.icons.glass),
-                        // ),
+                        TextWidget(
+                          padding: EdgeInsets.only(
+                            bottom: Dimensions.verticalSize * 0.4,
+                            top: Dimensions.verticalSize * 0.5,
+                          ),
+                          Strings.continueListening,
+                          color: CustomColor.whiteColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: Dimensions.titleMedium * 1.1,
+                        ),
+                        CustomItemsCardWidget(
+                          items: controller.continueListeningList,
+                          getImagePath: (item) => 'item.bookCover',
+                          getTitle: (item) => 'item.bookName',
+                          getSubtitle: (item) => 'item.synopsis',
+                          argument: (item) => item.id,
+                          // getTrailingIcon: (item) => item.isEbook == true
+                          //     ? SvgPicture.asset(Assets.icons.music)
+                          //     : item.isEbook == false
+                          //     ? SvgPicture.asset(Assets.icons.headphone)
+                          //     : SvgPicture.asset(Assets.icons.glass),
+                        ),
                       ],
                     ],
                   ),
